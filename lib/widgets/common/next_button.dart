@@ -24,8 +24,8 @@ class NextButton extends StatelessWidget {
                     .textTheme
                     .headline3
                     ?.copyWith(color: kBarBackColor)),
-            SizedBox(width: 10),
-            Icon(
+            const SizedBox(width: 10),
+            const Icon(
               Icons.arrow_forward,
               size: 22,
               color: kBarBackColor,

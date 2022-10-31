@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:routine_app/config/constants.dart';
-import 'package:routine_app/screens/Quiz/quiz.dart';
+
+import 'screens/Stat/stat.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
                   fontSize: 16,
                   fontWeight: FontWeight.w700),
               subtitle1: TextStyle(color: kHeadingColor, fontSize: 12))),
-      home: const QuizScreen(),
+      home: const StatScreen(),
     );
   }
 }

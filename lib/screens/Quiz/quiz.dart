@@ -7,6 +7,7 @@ import 'package:routine_app/config/constants.dart';
 import '../../widgets/Quiz/check_box_container.dart';
 import '../../widgets/common/next_button.dart';
 
+// ignore: prefer_typing_uninitialized_variables
 var size, height, width;
 
 class QuizScreen extends StatefulWidget {
@@ -17,7 +18,7 @@ class QuizScreen extends StatefulWidget {
 }
 
 class _QuizScreenState extends State<QuizScreen> {
-  bool _value = false;
+  final bool _value = false;
   @override
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
@@ -39,7 +40,7 @@ class _QuizScreenState extends State<QuizScreen> {
             children: [
               Text('Sleep Questionnaire'.toUpperCase(),
                   style: Theme.of(context).textTheme.headline4),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Container(
                 width: 140,
                 child: LinearPercentIndicator(
@@ -48,10 +49,10 @@ class _QuizScreenState extends State<QuizScreen> {
                   percent: 0.2,
                   backgroundColor: kBarBackColor,
                   progressColor: kBarFillColor,
-                  barRadius: Radius.circular(20),
+                  barRadius: const Radius.circular(20),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Text(
                 'How often do you drink caffeine?',
                 textAlign: TextAlign.center,
@@ -73,17 +74,17 @@ class _QuizScreenState extends State<QuizScreen> {
                   Container(
                     width: 70,
                     height: 70,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         color: kBackgroundColor, shape: BoxShape.circle),
-                    child: Center(
+                    child: const Center(
                         child: Icon(
                       Icons.arrow_back,
                       size: 25,
                       color: kHeadingColor,
                     )),
                   ),
-                  SizedBox(width: 10),
-                  NextButton()
+                  const SizedBox(width: 10),
+                  const NextButton()
                 ],
               )
             ],

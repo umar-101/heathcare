@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../config/constants.dart';
 
+// ignore: prefer_typing_uninitialized_variables
 var size, height, width;
 
 class CheckBoxContainer extends StatelessWidget {
@@ -38,7 +39,7 @@ class CheckBoxContainer extends StatelessWidget {
                     .headline4
                     ?.copyWith(color: _value ? kButtonColor : kHeadingColor),
               ),
-              Spacer(),
+              const Spacer(),
               GestureDetector(
                 onTap: () {
                   // setState(() {
@@ -55,12 +56,12 @@ class CheckBoxContainer extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(3.0),
                     child: _value
-                        ? Icon(
+                        ? const Icon(
                             Icons.check,
                             size: 20,
                             color: kBarBackColor,
                           )
-                        : Icon(
+                        : const Icon(
                             Icons.check_box_outline_blank,
                             size: 20,
                             color: Colors.transparent,
