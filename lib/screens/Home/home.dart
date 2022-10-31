@@ -1,14 +1,14 @@
-// ignore_for_file: prefer_typing_uninitialized_variables
+// ignore_for_file: prefer_typing_uninitialized_variables, avoid_unnecessary_containers
 
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:flutter/material.dart';
 
-import '../../constants.dart';
-import '../../widgets/coloured_navbar.dart';
-import '../../widgets/custom_button.dart';
-import 'components/bullet_point.dart';
-import 'components/check_bullet.dart';
+import '../../config/constants.dart';
+import '../../widgets/common/coloured_navbar.dart';
+import '../../widgets/common/custom_button.dart';
+import '../../widgets/home/bullet_point.dart';
+import '../../widgets/home/check_bullet.dart';
 
 var size, height, width;
 
@@ -34,7 +34,6 @@ class _HomeScreenState extends State<HomeScreen> {
     height = size.height;
     width = size.width;
     return Scaffold(
-      backgroundColor: kPrimaryColor,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),

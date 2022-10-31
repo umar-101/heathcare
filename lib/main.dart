@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
-import 'screens/Home/home.dart';
+import 'package:routine_app/config/constants.dart';
+import 'package:routine_app/screens/Quiz/quiz.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,9 +15,25 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const HomeScreen(),
+          scaffoldBackgroundColor: kPrimaryColor,
+          textTheme: const TextTheme(
+              headline1:
+                  TextStyle(color: kHeadingColor, fontWeight: FontWeight.w700),
+              headline2: TextStyle(
+                color: kHeadingColor,
+                fontSize: 30,
+                fontWeight: FontWeight.w700,
+              ),
+              headline3: TextStyle(
+                  color: kHeadingColor,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w700),
+              headline4: TextStyle(
+                  color: kHeadingColor,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700),
+              subtitle1: TextStyle(color: kHeadingColor, fontSize: 12))),
+      home: const QuizScreen(),
     );
   }
 }

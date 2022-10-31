@@ -11,3 +11,12 @@ const kBackgroundColor = Color(0xFF4939A8);
 
 const kHeadingColor = Color(0xFFFFFBF2);
 const kSubHeadingColor = Color(0xFFFEFDFA);
+
+// Linear Bar Color
+
+const kBarFillColor = Color(0xFFADA7EF);
+const kBarBackColor = Color(0xFF251C5E);
+
+// Button Container Color
+
+const kButtonColor = Color(0xFFFFE177);

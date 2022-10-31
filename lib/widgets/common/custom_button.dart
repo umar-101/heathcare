@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-import '../constants.dart';
+import '../../config/constants.dart';
 
 var size, height, width;
 
