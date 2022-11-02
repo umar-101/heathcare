@@ -63,7 +63,7 @@ class StatScreen extends StatelessWidget {
                             fontWeight: FontWeight.w600)),
                   ],
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Row(
                   children: const [
                     Padding(
@@ -92,20 +92,20 @@ class StatScreen extends StatelessWidget {
                       style: TextStyle(fontSize: 16),
                     ),
                     Spacer(),
-                    const Icon(Icons.star)
+                    Icon(Icons.star)
                   ],
                 ),
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
                 Row(
                   children: [
-                    Icon(Icons.dark_mode),
-                    SizedBox(width: 5),
+                    const Icon(Icons.dark_mode),
+                    const SizedBox(width: 5),
                     Text(
                       'sleep stages'.toUpperCase(),
-                      style:
-                          TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                      style: const TextStyle(
+                          fontSize: 14, fontWeight: FontWeight.w600),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     const Text('Learn more',
                         style: TextStyle(
                             color: Colors.grey,
@@ -124,7 +124,7 @@ class StatScreen extends StatelessWidget {
                   width: 200,
                   height: 200,
                   color: Colors.orange,
-                  child: TabBar(
+                  child: const TabBar(
                     tabs: [
                       Tab(icon: Icon(Icons.directions_car)),
                       Tab(icon: Icon(Icons.directions_transit)),
@@ -135,7 +135,7 @@ class StatScreen extends StatelessWidget {
                 Container(
                   width: 150,
                   height: 150,
-                  child: TabBarView(
+                  child: const TabBarView(
                     children: [
                       Icon(Icons.directions_car),
                       Icon(Icons.directions_transit),
