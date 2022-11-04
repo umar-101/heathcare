@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:routine_app/config/constants.dart';
 import 'package:routine_app/screens/Dashboard/dashboard.dart';
+import 'package:routine_app/widgets/dashboard/linechart.dart';
 
 void main() {
   runApp(const MyApp());
