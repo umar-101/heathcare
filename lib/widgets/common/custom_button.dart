@@ -21,13 +21,12 @@ class CustomButton extends StatelessWidget {
       height: 50,
       decoration: BoxDecoration(
           color: kSecondaryColor, borderRadius: BorderRadius.circular(44)),
-      child: const Center(
+      child: Center(
           child: Text(
         "I’m on it!",
-        style: TextStyle(
-            color: Color(0xFF251c5E),
-            fontSize: 16,
-            fontWeight: FontWeight.w700),
+        style: Theme.of(context).textTheme.headline4?.copyWith(
+              color: Color(0xFF251c5E),
+            ),
       )),
     );
   }

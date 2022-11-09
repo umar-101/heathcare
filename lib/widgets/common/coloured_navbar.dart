@@ -3,68 +3,73 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../config/constants.dart';
 
-class ColourNavBar extends StatelessWidget {
+class ColourNavBar extends StatefulWidget {
   const ColourNavBar({
     Key? key,
   }) : super(key: key);
 
   @override
+  State<ColourNavBar> createState() => _ColourNavBarState();
+}
+
+class _ColourNavBarState extends State<ColourNavBar> {
+  @override
   Widget build(BuildContext context) {
     return Container(
-      height: 100,
-      decoration: const BoxDecoration(
-        color: kPrimaryLightColor,
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(20),
-          topRight: Radius.circular(20),
-        ),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          BottomNavItem(
-            title: 'home',
-            iconString: 'assets/icons/Home.svg',
-            textColor: kSecondaryColor,
-            iconColor: kSecondaryColor,
-            outerBorder: kSecondaryColor,
-            press: () {},
-          ),
-          BottomNavItem(
-            title: 'unwind',
-            iconString: 'assets/icons/Unwind.svg',
-            textColor: const Color(0xFFFFFBF3),
-            iconColor: const Color(0xFFFFFBF3),
-            outerBorder: kPrimaryLightColor,
-            press: () {},
-          ),
-          BottomNavItem(
-            title: 'sleep',
-            iconString: 'assets/icons/Sleep.svg',
-            textColor: const Color(0xFFFFFBF3),
-            iconColor: const Color(0xFFFFFBF3),
-            outerBorder: kPrimaryLightColor,
-            press: () {},
-          ),
-          BottomNavItem(
-            title: 'learn',
-            iconString: 'assets/icons/Learn.svg',
-            textColor: const Color(0xFFFFFBF3),
-            iconColor: const Color(0xFFFFFBF3),
-            outerBorder: kPrimaryLightColor,
-            press: () {},
-          ),
-          BottomNavItem(
-            title: 'connect',
-            iconString: 'assets/icons/Connect.svg',
-            textColor: const Color(0xFFFFFBF3),
-            iconColor: const Color(0xFFFFFBF3),
-            outerBorder: kPrimaryLightColor,
-            press: () {},
-          )
-        ],
-      ),
-    );
+        //   height: 100,
+        //   decoration: const BoxDecoration(
+        //     color: kPrimaryLightColor,
+        //     borderRadius: BorderRadius.only(
+        //       topLeft: Radius.circular(20),
+        //       topRight: Radius.circular(20),
+        //     ),
+        //   ),
+        //   child: Row(
+        //     mainAxisAlignment: MainAxisAlignment.spaceAround,
+        //     children: [
+        //       BottomNavItem(
+        //         title: 'home',
+        //         iconString: 'assets/icons/Home.svg',
+        //         textColor: kSecondaryColor,
+        //         iconColor: kSecondaryColor,
+        //         outerBorder: kSecondaryColor,
+        //         press: () {},
+        //       ),
+        //       BottomNavItem(
+        //         title: 'unwind',
+        //         iconString: 'assets/icons/Unwind.svg',
+        //         textColor: const Color(0xFFFFFBF3),
+        //         iconColor: const Color(0xFFFFFBF3),
+        //         outerBorder: kPrimaryLightColor,
+        //         press: () {},
+        //       ),
+        //       BottomNavItem(
+        //         title: 'sleep',
+        //         iconString: 'assets/icons/Sleep.svg',
+        //         textColor: const Color(0xFFFFFBF3),
+        //         iconColor: const Color(0xFFFFFBF3),
+        //         outerBorder: kPrimaryLightColor,
+        //         press: () {},
+        //       ),
+        //       BottomNavItem(
+        //         title: 'learn',
+        //         iconString: 'assets/icons/Learn.svg',
+        //         textColor: const Color(0xFFFFFBF3),
+        //         iconColor: const Color(0xFFFFFBF3),
+        //         outerBorder: kPrimaryLightColor,
+        //         press: () {},
+        //       ),
+        //       BottomNavItem(
+        //         title: 'connect',
+        //         iconString: 'assets/icons/Connect.svg',
+        //         textColor: const Color(0xFFFFFBF3),
+        //         iconColor: const Color(0xFFFFFBF3),
+        //         outerBorder: kPrimaryLightColor,
+        //         press: () {},
+        //       )
+        //     ],
+        //   ),
+        );
   }
 }
 

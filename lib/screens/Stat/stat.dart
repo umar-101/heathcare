@@ -2,11 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:routine_app/config/constants.dart';
 import 'package:routine_app/screens/Home/home.dart';
 
+var size, height, width;
+
 class StatScreen extends StatelessWidget {
   const StatScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    size = MediaQuery.of(context).size;
+    height = size.height;
+    width = size.width;
     return DefaultTabController(
       length: 3,
       child: Scaffold(

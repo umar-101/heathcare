@@ -11,17 +11,17 @@ class CheckBullet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const Icon(
+        Icon(
           Icons.check_circle_outline,
           size: 24,
-          color: kSecondaryColor,
+          color: Theme.of(context).colorScheme.secondary,
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 2),
           child: Container(
             width: 1,
             height: 25,
-            color: kSecondaryColor,
+            color: Theme.of(context).colorScheme.secondary,
           ),
         )
       ],

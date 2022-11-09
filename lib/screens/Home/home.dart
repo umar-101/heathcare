@@ -3,17 +3,19 @@
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:flutter/material.dart';
+import 'package:routine_app/screens/Dashboard/dashboard.dart';
+import 'package:routine_app/widgets/dashboard/dahboard_body.dart';
 
 import '../../config/constants.dart';
+import '../../models/theme_data.dart';
 import '../../widgets/common/coloured_navbar.dart';
 import '../../widgets/common/custom_button.dart';
-import '../../widgets/home/bullet_point.dart';
-import '../../widgets/home/check_bullet.dart';
-
-var size, height, width;
+import '../../widgets/home/home_body.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -23,117 +25,268 @@ class _HomeScreenState extends State<HomeScreen> {
   int pageIndex = 0;
 
   final pages = [
-    // const Page1(),
-    // const Page1(),
-    // const Page3(),
-    // const Page4(),
+    const HomeBody(),
+    const Page2(),
+    const DashboardBody(),
+    const LearnScreen(),
+    const ConnectScreen(),
   ];
   @override
   Widget build(BuildContext context) {
-    size = MediaQuery.of(context).size;
-    height = size.height;
-    width = size.width;
+    const kNavbarTextStyle = TextStyle(
+      fontSize: 10,
+      letterSpacing: 1.2,
+      fontWeight: FontWeight.w700,
+      color: kSecondaryColor,
+    );
     return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: const [
-                  Text(
-                    'Good\nEvening\nTaylor',
-                    style: TextStyle(
-                        color: kHeadingColor,
-                        fontSize: 42,
-                        fontWeight: FontWeight.w700,
-                        letterSpacing: -0.2),
-                  ),
-                  Spacer(),
-                  Image(
-                    image: AssetImage('assets/images/moon.png'),
-                  )
-                ],
-              ),
-              const SizedBox(height: 25),
-              const Text(
-                'Your Night time Routine',
-                style: TextStyle(
-                    fontSize: 20,
-                    color: kSubHeadingColor,
-                    fontWeight: FontWeight.w700),
-              ),
-              const SizedBox(height: 20),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 8),
-                      child: Container(
-                        child: Column(
-                          children: [
-                            const CheckBullet(),
-                            const CheckBullet(),
-                            const CheckBullet(),
-                            SvgPicture.asset(
-                              'assets/icons/mooncheck.svg',
-                              width: 22,
-                              height: 22,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 4,
-                    child: Container(
-                      child: Column(
-                        children: [
-                          const BulletPoint(),
-                          const SizedBox(height: 10),
-                          const BulletPoint(),
-                          const SizedBox(height: 10),
-                          const BulletPoint(),
-                          const SizedBox(height: 10),
-                          Container(
-                            height: 180,
-                            width: width,
-                            decoration: BoxDecoration(
-                                color: const Color(0xFF4939A8),
-                                borderRadius: BorderRadius.circular(12)),
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 20, vertical: 15),
-                              child: Column(
-                                children: const [
-                                  Text(
-                                    'It’s almost 11:30 PM - time to get ready for bed!',
-                                    style: TextStyle(
-                                        fontSize: 20,
-                                        height: 1.5,
-                                        fontWeight: FontWeight.w700,
-                                        color: kHeadingColor),
-                                  ),
-                                  Spacer(),
-                                  CustomButton(),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              )
-            ],
+      body: pages[pageIndex],
+      bottomNavigationBar: Container(
+        height: 100,
+        decoration: BoxDecoration(
+          color: Theme.of(context).primaryColorDark,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
           ),
         ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  pageIndex = 0;
+                });
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                    border: Border(
+                        top: BorderSide(
+                            width: 1,
+                            color: pageIndex == 0
+                                ? Theme.of(context).colorScheme.background
+                                : Theme.of(context).primaryColor))),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset(
+                      'assets/icons/Home.svg',
+                      width: 30,
+                      height: 30,
+                      color: pageIndex == 0
+                          ? kSecondaryColor
+                          : Theme.of(context).colorScheme.background,
+                    ),
+                    const SizedBox(height: 10),
+                    Text('home'.toUpperCase(),
+                        style: kNavbarTextStyle.copyWith(
+                          color: pageIndex == 0
+                              ? kSecondaryColor
+                              : Theme.of(context).colorScheme.background,
+                        ))
+                  ],
+                ),
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  pageIndex = 1;
+                });
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                    border: Border(
+                        top: BorderSide(
+                  width: 1,
+                  color: pageIndex == 1
+                      ? Theme.of(context).colorScheme.background
+                      : kHeadingColor,
+                ))),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset(
+                      'assets/icons/Unwind.svg',
+                      width: 30,
+                      height: 30,
+                      color: pageIndex == 1
+                          ? kSecondaryColor
+                          : Theme.of(context).colorScheme.background,
+                    ),
+                    const SizedBox(height: 10),
+                    Text('unwind'.toUpperCase(),
+                        style: kNavbarTextStyle.copyWith(
+                          color: pageIndex == 1
+                              ? kSecondaryColor
+                              : Theme.of(context).colorScheme.background,
+                        ))
+                  ],
+                ),
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  pageIndex = 2;
+                });
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                    border: Border(
+                        top: BorderSide(
+                            width: 1,
+                            color: pageIndex == 2
+                                ? Theme.of(context).colorScheme.secondary
+                                : kHeadingColor))),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset(
+                      'assets/icons/Sleep.svg',
+                      width: 30,
+                      height: 30,
+                      color: pageIndex == 2
+                          ? Theme.of(context).colorScheme.background
+                          : kHeadingColor,
+                    ),
+                    const SizedBox(height: 10),
+                    Text('sleep'.toUpperCase(),
+                        style: kNavbarTextStyle.copyWith(
+                          color: pageIndex == 2
+                              ? Theme.of(context).colorScheme.background
+                              : kHeadingColor,
+                        ))
+                  ],
+                ),
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  pageIndex = 3;
+                });
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                    border: Border(
+                        top: BorderSide(
+                  width: 1,
+                  color: pageIndex == 3
+                      ? Theme.of(context).colorScheme.background
+                      : kHeadingColor,
+                ))),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset(
+                      'assets/icons/Learn.svg',
+                      width: 30,
+                      height: 30,
+                      color: pageIndex == 3
+                          ? Theme.of(context).colorScheme.background
+                          : kHeadingColor,
+                    ),
+                    const SizedBox(height: 10),
+                    Text('learn'.toUpperCase(),
+                        style: kNavbarTextStyle.copyWith(
+                          color: pageIndex == 3
+                              ? Theme.of(context).colorScheme.background
+                              : kHeadingColor,
+                        ))
+                  ],
+                ),
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  pageIndex = 4;
+                });
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                    border: Border(
+                        top: BorderSide(
+                  width: 1,
+                  color: pageIndex == 4
+                      ? Theme.of(context).colorScheme.background
+                      : kHeadingColor,
+                ))),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset(
+                      'assets/icons/Connect.svg',
+                      width: 30,
+                      height: 30,
+                      color: pageIndex == 4
+                          ? Theme.of(context).colorScheme.background
+                          : kHeadingColor,
+                    ),
+                    const SizedBox(height: 10),
+                    Text('connect'.toUpperCase(),
+                        style: kNavbarTextStyle.copyWith(
+                          color: pageIndex == 4
+                              ? Theme.of(context).colorScheme.background
+                              : kHeadingColor,
+                        ))
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
-      bottomNavigationBar: const ColourNavBar(),
+    );
+  }
+}
+
+class Page2 extends StatelessWidget {
+  const Page2({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Center(
+        child: Text(
+          'Page2',
+          style: TextStyle(fontSize: 30, color: Colors.orange),
+        ),
+      ),
+    );
+  }
+}
+
+class ConnectScreen extends StatelessWidget {
+  const ConnectScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Center(
+        child: Text(
+          'ConnectScreen',
+          style: TextStyle(fontSize: 30, color: Colors.orange),
+        ),
+      ),
+    );
+  }
+}
+
+class LearnScreen extends StatelessWidget {
+  const LearnScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Center(
+        child: Text(
+          'Learn Screen',
+          style: TextStyle(fontSize: 30, color: Colors.orange),
+        ),
+      ),
     );
   }
 }
